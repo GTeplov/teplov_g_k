@@ -17,9 +17,10 @@ int main() {
     while (t--) {
         flag = false;
         std::cin >> n;
-        for (int i = 0; i < n; i++) {
+        n -= 1;
+        for (int i = 0; i <= n; i++) {
             std::cin >> row;
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j <= n; j++) {
                 if ((row[j] == '*') && (flag == true)) {
                     d2x = i;
                     d2y = j;
@@ -31,6 +32,7 @@ int main() {
                 }
             }
         }
+        //std::cout << d1x << " " << d1y << " " << d2x << " " << d2y << std::endl;
         if ((d1x != d2x) && (d1y != d2y)) {
             a1x = d1x;
             a1y = d2y;
@@ -67,8 +69,8 @@ int main() {
                 }
             }
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= n; j++) {
                 if ((i == d1x && j == d1y) || (i == d2x && j == d2y) || (i == a1x && j == a1y) || (i == a2x && j == a2y))
                     std::cout << "*";
                 else
