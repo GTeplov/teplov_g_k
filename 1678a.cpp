@@ -4,28 +4,29 @@
 int main() {
     int t = 0;
     int n = 0;
+    int zeros = 0;
     int now = 0;
-    int flag = 2;
+    bool same = false;
     std::cin >> t;
     while (t--) {
-        std::cin >> n;
+        zeros = 0;
+        same = false;
         std::vector <int> a;
-        int c = 1;
-        while (n--) {
+        std::cin >> n;
+        for (int i = 0; i < n; i++) {
             std::cin >> now;
-            if (now == 0) {
-                flag = 1;
-                c += 1;
-            }
-            else {
-                for (int i = 0; i < a.size(); i++)
-                    if (now == a[i]) {
-                        flag = 1;
+            if (now == 0)
+                zeros += 1;
+            if (zeros == 0) {
+                for (int j = 0; j < a.size(); j++) {
+                    if (a[j] == now) {
+                        same = true;
                         break;
                     }
+                }
             }
             a.push_back(now);
         }
-        std::cout << flag - c + a.size() << std::endl;
+        std::cout << n + !(same) * !(zeros) - zeros << std::endl;
     }
 }
