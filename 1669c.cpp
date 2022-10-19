@@ -29,10 +29,8 @@ int main() {
                 else if (two % 2 != now % 2)
                     flag2 = false;
             }
-            if (flag1 == false && flag2 == false)
-                break;
         }
-        if (flag1 == false && flag2 == false)
+        if (flag1 == false || flag2 == false)
             std::cout << "NO" << std::endl;
         else std::cout << "YES" << std::endl;
     }
